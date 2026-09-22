@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111318">
+  <title>Copies da Semana · Discount Detail</title>
+  <style>
+    :root{
+      --bg:#f3f4f6;--card:#fff;--ink:#171b23;--text:#414957;--muted:#7d8592;
+      --line:#e1e4e9;--soft:#f7f8fa;--gold:#b18a34;--green:#17845b;--orange:#b86f1c;
+      --serif:Georgia,"Times New Roman",serif;--shadow:0 14px 34px rgba(19,25,35,.07)
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    .shell{width:min(960px,calc(100% - 28px));margin:auto;padding:48px 0 72px}
+    header{text-align:center;margin-bottom:30px}
+    .eyebrow{color:var(--gold);font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase}
+    h1{margin:10px 0 7px;color:var(--ink);font:600 clamp(32px,5vw,48px)/1.05 var(--serif)}
+    header p{margin:0;color:var(--muted);font-size:14px}
+    .brand{display:inline-flex;align-items:center;gap:9px;margin-top:17px;padding:8px 14px;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--ink);font-size:10px;font-weight:900;letter-spacing:1.2px}
+    .brand::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
+    .summary{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;padding:16px 18px;border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 5px 18px rgba(19,25,35,.04)}
+    .summary strong{color:var(--ink);font:600 19px var(--serif)}
+    .summary span{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+    .list{display:grid;gap:14px}
+    .post{background:var(--card);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);overflow:hidden;position:relative}
+    .post::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--gold)}
+    .post-head{display:grid;grid-template-columns:100px 1fr auto;align-items:center;gap:16px;padding:18px 20px 15px 24px;border-bottom:1px solid var(--line)}
+    .number{color:var(--muted);font-size:10px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase}
+    h2{margin:0;color:var(--ink);font:600 22px/1.2 var(--serif)}
+    .type{padding:5px 10px;border-radius:99px;background:#f2ede2;color:#8a6925;font-size:9px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap}
+    .body{display:grid;grid-template-columns:190px 1fr;gap:20px;padding:18px 20px 20px 24px}
+    .meta{display:grid;align-content:start;gap:8px}
+    .meta div{padding:10px 11px;border:1px solid #eceef1;border-radius:10px;background:var(--soft)}
+    .meta small{display:block;margin-bottom:2px;color:var(--muted);font-size:8px;font-weight:900;letter-spacing:1px;text-transform:uppercase}
+    .meta b{color:var(--ink);font-size:11px}
+    .status-approved{color:var(--green)!important}.status-pending{color:var(--orange)!important}
+    .copy{display:grid;gap:10px}
+    .block{padding:14px 15px;border:1px solid #e8e9ed;border-radius:11px;background:#fff}
+    .block h3{margin:0 0 8px;color:var(--gold);font-size:9px;font-weight:900;letter-spacing:1.3px;text-transform:uppercase}
+    .block p{margin:0 0 8px;font-size:13px}.block p:last-child{margin:0}
+    .lead{color:var(--ink);font-weight:800}
+    .copy-line{white-space:pre-line;color:var(--ink);font-weight:750}
+    .slide{padding:10px 0;border-top:1px solid #eef0f2}.slide:first-of-type{padding-top:0;border-top:0}.slide:last-child{padding-bottom:0}
+    .slide b{display:block;margin-bottom:4px;color:var(--gold);font-size:9px;letter-spacing:1px;text-transform:uppercase}
+    footer{text-align:center;margin-top:42px;color:var(--muted);font-size:11px}
+    footer::before{content:"";display:block;width:54px;height:2px;margin:0 auto 15px;background:var(--gold)}
+    @media(max-width:700px){.shell{padding-top:34px}.post-head{grid-template-columns:1fr auto}.number{grid-column:1/-1}.body{grid-template-columns:1fr}.meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:440px){.shell{width:min(100% - 16px,960px)}.summary{align-items:flex-start;flex-direction:column}.post-head{padding:17px 16px 14px 20px}.body{padding:16px 16px 18px 20px}.meta{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="eyebrow">Planejamento Editorial</div>
+      <h1>Copies da Semana</h1>
+      <p>Posts 01–04 · conteúdo para revisão</p>
+      <div class="brand">DISCOUNT DETAIL · SINCE 1999</div>
+    </header>
+
+    <section class="summary" aria-label="Resumo">
+      <strong>Semana 01</strong>
+      <span>4 conteúdos</span>
+    </section>
+
+    <section class="list">
+      <article class="post">
+        <div class="post-head"><span class="number">Post 01</span><h2>Your Car Deserves a Reset Too.</h2><span class="type">Static · Hero / Desire</span></div>
+        <div class="body">
+          <div class="meta"><div><small>Status</small><b class="status-approved">Copy approved</b></div><div><small>Supporting copy</small><b>Start Fresh. Drive Clean.</b></div></div>
+          <div class="copy"><div class="block"><h3>Caption</h3><p class="lead">You spend more time inside your car than you probably realize.</p><p>And little by little, everyday life starts to show — on the seats, carpets, console, and all those places a quick clean doesn't reach.</p><p>A professional interior detail isn't just about making things look better. It's about bringing back that fresh, clean feeling every time you get behind the wheel.</p><p>Ready for a fresh start?<br>Click the link in our bio or call (508) 746-5634 to get started.</p></div></div>
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-head"><span class="number">Post 02</span><h2>Car Wash / Detailing Process</h2><span class="type">Video · Hero / Process</span></div>
+        <div class="body">
+          <div class="meta"><div><small>Status</small><b class="status-pending">Copy pending</b></div><div><small>Concept</small><b>Detailing process video</b></div></div>
+          <div class="copy">
+            <div class="block"><h3>Opening text</h3><p class="copy-line">YOU FORGET HOW GOOD<br>CLEAN FEELS.</p></div>
+            <div class="block"><h3>Transition</h3><p class="copy-line">UNTIL YOU SEE THIS.</p></div>
+            <div class="block"><h3>Ending</h3><p class="copy-line">READY FOR YOURS?</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-head"><span class="number">Post 03</span><h2>4 Signs Your Interior Needs More Than a Quick Clean</h2><span class="type">Carousel · Help → Hub</span></div>
+        <div class="body">
+          <div class="meta"><div><small>Status</small><b class="status-approved">Copy approved</b></div><div><small>Format</small><b>6 slides</b></div></div>
+          <div class="copy">
+            <div class="block"><h3>Carousel copy</h3>
+              <div class="slide"><b>Slide 1</b><p class="copy-line">4 SIGNS YOUR INTERIOR<br>NEEDS MORE THAN<br>A QUICK CLEAN</p></div>
+              <div class="slide"><b>Slide 2</b><p class="copy-line">THE “CLEAN CAR” SMELL<br>DOESN'T LAST.</p><p>If odors keep coming back, covering them up isn't solving the source.</p></div>
+              <div class="slide"><b>Slide 3</b><p class="copy-line">YOUR SEATS DON'T LOOK<br>LIKE THEY USED TO.</p><p>Daily use slowly builds up dirt, stains and grime.</p></div>
+              <div class="slide"><b>Slide 4</b><p class="copy-line">THE HIDDEN AREAS<br>AREN'T SO HIDDEN ANYMORE.</p><p>Between the seats. Under the mats. Around the console.</p></div>
+              <div class="slide"><b>Slide 5</b><p class="copy-line">YOU CLEAN IT...<br>BUT IT NEVER FEELS CLEAN.</p><p>That's usually when a quick wipe-down isn't enough anymore.</p></div>
+              <div class="slide"><b>Slide 6</b><p class="copy-line">MAYBE YOUR CAR<br>JUST NEEDS A RESET.<br>LET'S BRING THAT CLEAN FEELING BACK.</p></div>
+            </div>
+            <div class="block"><h3>Caption</h3><p class="lead">Your interior doesn't get dirty overnight.</p><p>It happens little by little — until one day, the quick clean just doesn't cut it anymore.</p><p>Seats, carpets, hard-to-reach areas and the surfaces you touch every day all tell the story.</p><p>A professional detail goes beyond what you can see at first glance.</p><p>Is your interior due for a reset?<br>Click the link in our bio or call (508) 746-5634 to get started.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-head"><span class="number">Post 04</span><h2>Same Interior. Different Experience.</h2><span class="type">Static Before &amp; After · Hero / Proof</span></div>
+        <div class="body">
+          <div class="meta"><div><small>Status</small><b class="status-pending">Copy pending</b></div><div><small>Supporting copy</small><b>See what a proper detail can do.</b></div></div>
+          <div class="copy"><div class="block"><h3>Concept</h3><p>Before and after using photos from the same vehicle.</p></div></div>
+        </div>
+      </article>
+    </section>
+
+    <footer><strong>Discount Detail</strong><br>Plymouth, MA · (508) 746-5634</footer>
+  </main>
+</body>
+</html>
