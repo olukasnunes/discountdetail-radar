@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head>
+<html lang="pt-BR">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f5f6f8">
@@ -31,7 +32,7 @@
   .progress{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;font-weight:700}
   .progress-bar{width:92px;height:7px;background:var(--line-soft);border-radius:99px;overflow:hidden}
   .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--green));transition:width .25s ease}
-  .tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:6px;background:#e9ebef;border:1px solid #dde0e6;border-radius:16px;margin-bottom:24px;position:sticky;top:12px;z-index:10;box-shadow:0 8px 24px rgba(26,34,48,.08)}
+  .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:6px;background:#e9ebef;border:1px solid #dde0e6;border-radius:16px;margin-bottom:24px;position:sticky;top:12px;z-index:10;box-shadow:0 8px 24px rgba(26,34,48,.08)}
   .tab{border:0;border-radius:11px;background:transparent;color:var(--muted);padding:13px 18px;font-size:12px;font-weight:900;letter-spacing:1.5px;transition:.2s ease}
   .tab:hover{color:var(--ink)}
   .tab[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:0 3px 12px rgba(26,34,48,.08)}
@@ -46,33 +47,34 @@
   .status-key i{width:7px;height:7px;border-radius:50%;background:var(--line)}
   .status-key .approved{background:var(--green)}
   .status-key .changes{background:var(--danger)}
-  .content-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+  .content-grid{display:grid;grid-template-columns:1fr;gap:14px;align-items:start}
   .content-card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 1px 2px rgba(20,30,50,.03),0 12px 32px rgba(20,30,50,.05)}
   .content-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent 75%)}
   .content-card.hero{--accent:var(--blue)}
   .content-card.help{--accent:var(--green)}
   .content-card.hub{--accent:var(--pink)}
   .content-card.authority{--accent:var(--gold)}
-  .card-body{padding:23px 22px 0}
+  .card-body{display:grid;grid-template-columns:minmax(270px,.82fr) minmax(420px,1.35fr);gap:22px;padding:20px 22px 18px}
+  .card-overview,.card-main{min-width:0}
   .card-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
   .post-id{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:800}
   .pill{padding:4px 10px;border-radius:99px;background:color-mix(in srgb,var(--accent) 11%,white);color:var(--accent);font-size:10px;letter-spacing:.7px;text-transform:uppercase;font-weight:900}
-  .content-card h3{margin:0;color:var(--ink);font:600 21px/1.23 var(--serif);letter-spacing:-.2px}
+  .content-card h3{margin:0;color:var(--ink);font:600 19px/1.23 var(--serif);letter-spacing:-.2px}
   .pt-title{margin:4px 0 0;color:var(--muted);font-size:13px;font-style:italic}
-  .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:16px 0}
-  .meta-item{padding:10px 11px;background:var(--bg);border:1px solid var(--line-soft);border-radius:10px}
+  .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin:14px 0 0}
+  .meta-item{padding:8px 10px;background:var(--bg);border:1px solid var(--line-soft);border-radius:9px}
   .meta-label{display:block;margin-bottom:2px;color:var(--muted);font-size:9px;letter-spacing:1.1px;text-transform:uppercase;font-weight:800}
   .meta-value{color:var(--ink);font-size:12px;font-weight:700}
-  .copy-block{padding:14px 15px;background:var(--bg);border:1px solid var(--line-soft);border-radius:12px;margin-bottom:12px}
+  .copy-block{padding:12px 14px;background:var(--bg);border:1px solid var(--line-soft);border-radius:11px;margin-bottom:10px}
   .block-label{display:flex;align-items:center;gap:7px;margin-bottom:8px;color:var(--gold);font-size:9px;letter-spacing:1.4px;text-transform:uppercase;font-weight:900}
   .block-label::before{content:"";width:13px;height:1px;background:currentColor;opacity:.65}
-  .copy-block p{margin:0 0 7px;font-size:13px;line-height:1.54}
+  .copy-block p{margin:0 0 6px;font-size:12.5px;line-height:1.48}
   .copy-block p:last-child{margin:0}
   .hook{color:var(--ink);font-weight:750}
   .cta{color:var(--gold);font-weight:700}
   .tags{color:var(--green);font-size:11.5px!important;word-spacing:2px}
-  details{margin-bottom:16px;border:1px solid var(--line);border-radius:10px;background:#fff}
-  summary{list-style:none;padding:10px 13px;cursor:pointer;color:var(--muted);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:800}
+  details{margin-bottom:9px;border:1px solid var(--line);border-radius:10px;background:#fff}
+  summary{list-style:none;padding:9px 12px;cursor:pointer;color:var(--muted);font-size:9.5px;letter-spacing:1.1px;text-transform:uppercase;font-weight:800}
   summary::-webkit-details-marker{display:none}
   summary::before{content:"＋";display:inline-block;width:18px;color:var(--gold)}
   details[open] summary::before{content:"−"}
@@ -80,22 +82,23 @@
   .details-body p{margin:0 0 7px}
   .details-body ol{margin:6px 0 0;padding-left:19px}
   .details-body li{margin:6px 0}
-  .review{border-top:1px solid var(--line-soft);padding:16px 22px 20px;background:#fcfcfd}
-  .review-status{display:none;align-items:center;gap:8px;margin-bottom:12px;padding:9px 11px;border-radius:9px;font-size:11px;font-weight:800}
+  .review{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;border-top:1px solid var(--line-soft);padding:12px 22px;background:#fcfcfd}
+  .review-status{display:none;align-items:center;gap:8px;margin:0;padding:8px 11px;border-radius:9px;font-size:11px;font-weight:800}
   .review-status.visible{display:flex}
   .review-status.approved{color:#147a50;background:#edf9f4;border:1px solid #d4f0e4}
   .review-status.changes{color:#943641;background:#fff3f4;border:1px solid #f2d8dc}
+  .review-status.pending{color:#657083;background:#f2f4f7;border:1px solid #e1e5eb}
   .review-status::before{font-size:14px}
   .review-status.approved::before{content:"✓"}
   .review-status.changes::before{content:"!"}
-  .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .btn{min-height:43px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;font-weight:900;transition:.18s ease}
+  .actions{display:grid;grid-template-columns:auto auto;gap:8px;grid-column:2}
+  .btn{min-height:38px;padding:0 16px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:9.5px;letter-spacing:.75px;text-transform:uppercase;font-weight:900;transition:.18s ease}
   .btn:focus-visible,.tab:focus-visible,textarea:focus-visible{outline:3px solid rgba(47,111,176,.24);outline-offset:2px}
   .btn-approve{border-color:#cfe9dc;color:#147a50;background:#f7fcfa}
   .btn-approve:hover{background:#eaf8f2;border-color:#aad9c4}
   .btn-change{color:#963b46;background:#fff;border-color:#eed8db}
   .btn-change:hover{background:var(--danger-bg);border-color:#dfb8be}
-  .change-box{display:none;margin-top:10px}
+  .change-box{display:none;grid-column:1/-1;margin-top:0}
   .change-box.open{display:block}
   .change-box label{display:block;margin-bottom:7px;color:var(--ink);font-size:11px;font-weight:800}
   textarea{width:100%;min-height:100px;resize:vertical;padding:12px;border:1px solid var(--line);border-radius:10px;color:var(--ink);background:#fff;font-size:13px;line-height:1.45}
@@ -103,9 +106,15 @@
   .change-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}
   .btn-small{min-height:36px;padding:0 13px;font-size:9.5px}
   .btn-save{background:var(--ink);border-color:var(--ink);color:#fff}
-  .preview{aspect-ratio:4/5;margin:0;background:#12161d;display:grid;place-items:center;position:relative;overflow:hidden;color:#fff}
+  .post-ready-layout{display:grid;grid-template-columns:220px 1fr}
+  .post-ready-layout .card-body{grid-template-columns:1fr;padding-bottom:18px}
+  .preview{min-height:260px;margin:0;background:#12161d;display:grid;place-items:center;position:relative;overflow:hidden;color:#fff}
   .preview img,.preview video{width:100%;height:100%;object-fit:cover;display:block}
   .preview-badge{position:absolute;top:14px;left:14px;padding:6px 9px;border-radius:99px;background:rgba(15,20,28,.78);backdrop-filter:blur(8px);font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:900}
+  .art-preview{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;background:radial-gradient(circle at 76% 18%,rgba(201,162,75,.3),transparent 28%),linear-gradient(145deg,#252b34,#10141b 70%);text-align:left}
+  .art-preview::before{content:"DISCOUNT DETAIL · SINCE 1999";position:absolute;top:24px;left:26px;color:#d7b966;font-size:9px;letter-spacing:1.5px;font-weight:900}
+  .art-preview strong{max-width:520px;font:600 clamp(25px,4vw,40px)/1.05 var(--serif);letter-spacing:-.5px}
+  .art-preview span{display:block;margin-top:10px;color:#d8dbe1;font-size:13px;letter-spacing:.3px}
   .empty-state{padding:70px 24px;text-align:center;background:#fff;border:1px dashed #ced3dc;border-radius:18px}
   .empty-icon{width:62px;height:62px;margin:0 auto 18px;display:grid;place-items:center;border-radius:50%;background:rgba(169,129,47,.1);color:var(--gold);font-size:25px}
   .empty-state h3{margin:0 0 7px;color:var(--ink);font:600 21px var(--serif)}
@@ -113,11 +122,11 @@
   footer{text-align:center;margin-top:56px;color:var(--muted);font-size:11.5px}
   footer::before{content:"";display:block;width:58px;height:2px;margin:0 auto 17px;background:var(--gold);opacity:.55}
   footer b{color:var(--ink)}
-  @media(max-width:800px){
-    .shell{width:min(100% - 22px,620px);padding-top:38px}.week-summary{grid-template-columns:auto 1fr}.progress{grid-column:1/-1;justify-content:flex-end}.content-grid{grid-template-columns:1fr}.section-intro{align-items:start;flex-direction:column}.status-key{justify-content:flex-start}.tabs{top:7px}.meta{grid-template-columns:1fr 1fr}
+  @media(max-width:900px){
+    .shell{width:min(100% - 22px,720px);padding-top:38px}.week-summary{grid-template-columns:auto 1fr}.progress{grid-column:1/-1;justify-content:flex-end}.section-intro{align-items:start;flex-direction:column}.status-key{justify-content:flex-start}.tabs{top:7px;grid-template-columns:repeat(2,1fr)}.card-body{grid-template-columns:1fr;gap:12px}.post-ready-layout{grid-template-columns:1fr}.preview{aspect-ratio:16/9;min-height:0}.review{grid-template-columns:1fr}.actions{grid-column:1;grid-template-columns:1fr 1fr}.review-status{margin-bottom:0}
   }
   @media(max-width:480px){
-    .shell{width:min(100% - 16px,620px)}.masthead{padding:0 8px}.week-summary{padding:15px}.card-body{padding:20px 17px 0}.review{padding:15px 17px 18px}.actions{grid-template-columns:1fr}.tab{padding:12px 8px}.tab-count{display:none}
+    .shell{width:min(100% - 16px,620px)}.masthead{padding:0 8px}.week-summary{padding:15px}.card-body{padding:18px 16px 10px}.review{padding:12px 16px 16px}.actions{grid-template-columns:1fr}.tab{padding:12px 8px}.tab-count{display:none}
   }
   @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
@@ -127,19 +136,21 @@
   <header class="masthead">
     <div class="kicker">Planejamento Editorial</div>
     <h1>Radar Semanal</h1>
-    <p class="subtitle">4 conteúdos · copy, produção e aprovação em um só lugar</p>
+    <p class="subtitle">4 conteúdos + 1 teste · copy, produção e aprovação em um só lugar</p>
     <div class="brand-line">DISCOUNT DETAIL · SINCE 1999</div>
   </header>
 
   <section class="week-summary" aria-label="Resumo da semana">
     <div class="week-number">1</div>
     <div><h2>Semana 01</h2><p>The difference is in the details</p></div>
-    <div class="progress"><span id="progressText">1 de 4 aprovados</span><span class="progress-bar" aria-hidden="true"><span class="progress-fill" id="progressFill" style="width: 25%;"></span></span></div>
+    <div class="progress"><span id="progressText">0 de 4 aprovados</span><span class="progress-bar" aria-hidden="true"><span class="progress-fill" id="progressFill"></span></span></div>
   </section>
 
   <nav class="tabs" aria-label="Áreas do Radar" role="tablist">
-    <button class="tab" id="tab-copy" role="tab" aria-controls="panel-copy" aria-selected="true">COPY <span class="tab-count">4</span></button>
-    <button class="tab" id="tab-posts" role="tab" aria-controls="panel-posts" aria-selected="false">POSTS <span class="tab-count" id="readyCount">0</span></button>
+    <button class="tab" id="tab-copy" role="tab" aria-controls="panel-copy" aria-selected="true">COPY <span class="tab-count" id="copyCount">0</span></button>
+    <button class="tab" id="tab-production" role="tab" aria-controls="panel-production" aria-selected="false">EM PRODUÇÃO <span class="tab-count" id="productionCount">0</span></button>
+    <button class="tab" id="tab-posts" role="tab" aria-controls="panel-posts" aria-selected="false">POSTS <span class="tab-count" id="postsCount">0</span></button>
+    <button class="tab" id="tab-final" role="tab" aria-controls="panel-final" aria-selected="false">FINALIZADO <span class="tab-count" id="finalCount">0</span></button>
   </nav>
 
   <section id="panel-copy" role="tabpanel" aria-labelledby="tab-copy">
@@ -147,98 +158,16 @@
       <div><h2>Conteúdos da semana</h2><p>Revise o conceito, a copy, a legenda final e as informações de produção de cada conteúdo.</p></div>
       <div class="status-key" aria-label="Legenda de status"><span><i></i>Pendente</span><span><i class="approved"></i>Aprovado</span><span><i class="changes"></i>Alteração</span></div>
     </div>
-    <div class="content-grid" id="copyGrid"><article class="content-card hero" data-card="post-01">
-    <div class="card-body">
-      <div class="card-top"><span class="post-id">Post 01</span><span class="pill">Hero</span></div>
-      <h3>The Difference Is in the Details</h3><p class="pt-title">A Diferença Está nos Detalhes</p>
-      <div class="meta"><div class="meta-item"><span class="meta-label">Formato</span><span class="meta-value">Reel</span></div><div class="meta-item"><span class="meta-label">Publicação</span><span class="meta-value">Segunda-feira</span></div><div class="meta-item"><span class="meta-label">Objetivo</span><span class="meta-value">Transformação e alcance</span></div><div class="meta-item"><span class="meta-label">Entrega</span><span class="meta-value">15–20s</span></div></div>
-      <div class="copy-block"><div class="block-label">Direção criativa</div><p>Before/after com cortes rápidos: detalhes sujos, processo e reveal final. Fechar com o reflexo da pintura e a assinatura Since 1999.</p></div>
-      <div class="copy-block"><div class="block-label">Legenda final (EN)</div>
-    <p class="hook">The difference is in the details, and we've spent 27 years perfecting them.</p><p>A quick wash looks good for a day. A real detail is something you feel every single time you get back in your car.</p><p class="cta">Ready to see it on your car? Click the link in our bio or call (508) 746-5634.</p><p class="tags">#autodetailing #plymouthma #cardetailing #southshoremass #newenglandcars</p>
-  </div>
-      <details><summary>Referência em português</summary><div class="details-body"><p class="hook">A diferença está nos detalhes, e passamos 27 anos aperfeiçoando cada um deles.</p><p class="">Uma lavagem rápida fica boa por um dia. Um detalhamento de verdade é algo que você sente toda vez que entra no carro.</p><p class="cta">Pronto pra ver isso no seu carro? Clique no link da bio ou ligue: (508) 746-5634.</p></div></details>
-    </div><div class="review" data-review="post-01">
-    <div class="review-status approved visible" aria-live="polite">Conteúdo aprovado</div>
-    <div class="actions">
-      <button class="btn btn-approve" data-action="approve" data-id="post-01">Aprovar</button>
-      <button class="btn btn-change" data-action="change" data-id="post-01" aria-expanded="false">Solicitar alteração</button>
-    </div>
-    <div class="change-box ">
-      <label for="note-post-01">O que precisa mudar?</label>
-      <textarea id="note-post-01" placeholder="Descreva a alteração de forma objetiva..."></textarea>
-      <div class="change-actions"><button class="btn btn-small" data-action="cancel" data-id="post-01">Cancelar</button><button class="btn btn-small btn-save" data-action="save" data-id="post-01">Salvar solicitação</button></div>
-    </div>
-  </div>
-  </article><article class="content-card help" data-card="post-02">
-    <div class="card-body">
-      <div class="card-top"><span class="post-id">Post 02</span><span class="pill">Help</span></div>
-      <h3>A Cleaner Car Is a Healthier Ride</h3><p class="pt-title">Um carro limpo é um carro mais saudável</p>
-      <div class="meta"><div class="meta-item"><span class="meta-label">Formato</span><span class="meta-value">Carrossel</span></div><div class="meta-item"><span class="meta-label">Publicação</span><span class="meta-value">Terça-feira</span></div><div class="meta-item"><span class="meta-label">Objetivo</span><span class="meta-value">Educação e bem-estar</span></div><div class="meta-item"><span class="meta-label">Entrega</span><span class="meta-value">4 slides</span></div></div>
-      <div class="copy-block"><div class="block-label">Direção criativa</div><p>Carrossel educativo com foco em poeira, pólen e germes. Visual limpo, close nos pontos de contato e linguagem voltada a famílias.</p></div>
-      <div class="copy-block"><div class="block-label">Legenda final (EN)</div>
-    <p class="hook">Your car carries your whole family, so what builds up inside it really matters.</p><p>A deep interior detail clears out the dust, pollen, and germs that collect where you and your kids sit every day. Swipe to see why it's about more than looks 👇</p><p class="cta">Give your family a fresher, cleaner ride. Click the link in our bio or call (508) 746-5634.</p><p class="tags">#autodetailing #interiordetailing #plymouthma #cardetailing #southshoremass</p>
-  </div><details><summary>Roteiro do carrossel</summary><div class="details-body"><ol><li>A cleaner car is a healthier ride.</li><li>Dust, pollen, and everyday germs settle into your seats, carpets, and vents.</li><li>A deep interior detail lifts it out, leaving cleaner air and surfaces.</li><li>27 years keeping Plymouth families riding fresh.</li></ol></div></details>
-      <details><summary>Referência em português</summary><div class="details-body"><p class="hook">Seu carro leva a sua família inteira, então o que se acumula dentro dele faz diferença.</p><p class="">Um detalhamento interno profundo tira a poeira, o pólen e os germes que se juntam bem onde você e seus filhos sentam todo dia.</p><p class="cta">Dê à sua família um carro mais fresco e limpo. Clique no link da bio ou ligue: (508) 746-5634.</p></div></details>
-    </div><div class="review" data-review="post-02">
-    <div class="review-status  " aria-live="polite"></div>
-    <div class="actions">
-      <button class="btn btn-approve" data-action="approve" data-id="post-02">Aprovar</button>
-      <button class="btn btn-change" data-action="change" data-id="post-02" aria-expanded="false">Solicitar alteração</button>
-    </div>
-    <div class="change-box ">
-      <label for="note-post-02">O que precisa mudar?</label>
-      <textarea id="note-post-02" placeholder="Descreva a alteração de forma objetiva..."></textarea>
-      <div class="change-actions"><button class="btn btn-small" data-action="cancel" data-id="post-02">Cancelar</button><button class="btn btn-small btn-save" data-action="save" data-id="post-02">Salvar solicitação</button></div>
-    </div>
-  </div>
-  </article><article class="content-card hub" data-card="post-03">
-    <div class="card-body">
-      <div class="card-top"><span class="post-id">Post 03</span><span class="pill">Hub</span></div>
-      <h3>Think Your Car Is Clean?</h3><p class="pt-title">Acha que seu carro está limpo?</p>
-      <div class="meta"><div class="meta-item"><span class="meta-label">Formato</span><span class="meta-value">Reel</span></div><div class="meta-item"><span class="meta-label">Publicação</span><span class="meta-value">Quinta-feira</span></div><div class="meta-item"><span class="meta-label">Objetivo</span><span class="meta-value">Curiosidade e conversão</span></div><div class="meta-item"><span class="meta-label">Entrega</span><span class="meta-value">15–20s</span></div></div>
-      <div class="copy-block"><div class="block-label">Direção criativa</div><p>Reel de descoberta: revelar sujeira escondida em bancos, frestas e saídas de ar, seguido do resultado final.</p></div>
-      <div class="copy-block"><div class="block-label">Legenda final (EN)</div>
-    <p class="hook">Your car might look clean, but there's usually more hiding than you'd expect.</p><p>Dirt worked deep into the seats, grime along the vents, and a dull layer the paint picks up over months of driving. Once it's gone, the difference is night and day.</p><p class="cta">Want to see what a real detail uncovers on your car? Click the link in our bio or call (508) 746-5634.</p><p class="tags">#autodetailing #plymouthma #cardetailing #interiordetailing #southshoremass</p>
-  </div>
-      <details><summary>Referência em português</summary><div class="details-body"><p class="hook">Seu carro pode até parecer limpo, mas quase sempre tem mais coisa escondida do que você imagina.</p><p class="">Sujeira entranhada nos bancos, aquela crosta nas saídas de ar e uma camada sem brilho que a pintura acumula com os meses de estrada.</p><p class="cta">Quer ver o que um detalhamento de verdade revela no seu carro? Clique no link da bio ou ligue: (508) 746-5634.</p></div></details>
-    </div><div class="review" data-review="post-03">
-    <div class="review-status  " aria-live="polite"></div>
-    <div class="actions">
-      <button class="btn btn-approve" data-action="approve" data-id="post-03">Aprovar</button>
-      <button class="btn btn-change" data-action="change" data-id="post-03" aria-expanded="false">Solicitar alteração</button>
-    </div>
-    <div class="change-box ">
-      <label for="note-post-03">O que precisa mudar?</label>
-      <textarea id="note-post-03" placeholder="Descreva a alteração de forma objetiva..."></textarea>
-      <div class="change-actions"><button class="btn btn-small" data-action="cancel" data-id="post-03">Cancelar</button><button class="btn btn-small btn-save" data-action="save" data-id="post-03">Salvar solicitação</button></div>
-    </div>
-  </div>
-  </article><article class="content-card authority" data-card="post-04">
-    <div class="card-body">
-      <div class="card-top"><span class="post-id">Post 04</span><span class="pill">Authority</span></div>
-      <h3>Every Detail Matters</h3><p class="pt-title">Cada detalhe importa</p>
-      <div class="meta"><div class="meta-item"><span class="meta-label">Formato</span><span class="meta-value">Foto</span></div><div class="meta-item"><span class="meta-label">Publicação</span><span class="meta-value">Sexta-feira</span></div><div class="meta-item"><span class="meta-label">Objetivo</span><span class="meta-value">Posicionamento premium</span></div><div class="meta-item"><span class="meta-label">Entrega</span><span class="meta-value">Imagem única</span></div></div>
-      <div class="copy-block"><div class="block-label">Direção criativa</div><p>Foto premium de detalhe: soleira, acabamento do vidro ou reflexo da pintura. Enquadramento fechado e iluminação contrastada.</p></div>
-      <div class="copy-block"><div class="block-label">Legenda final (EN)</div>
-    <p class="hook">Every detail matters to us, right down to the ones you'd never think to check.</p><p>The door jambs, the seams, the edges of the glass. We treat your car like it's our own, because the small things are what make it feel truly finished.</p><p class="cta">Feel the difference for yourself. Click the link in our bio or call (508) 746-5634.</p><p class="tags">#autodetailing #plymouthma #cardetailing #ceramiccoating #newenglandcars</p>
-  </div>
-      <details><summary>Referência em português</summary><div class="details-body"><p class="hook">Cada detalhe importa pra gente, até aqueles que você nem pensaria em conferir.</p><p class="">As soleiras das portas, as frestas, as bordas dos vidros. A gente trata o seu carro como se fosse nosso.</p><p class="cta">Sinta a diferença você mesmo. Clique no link da bio ou ligue: (508) 746-5634.</p></div></details>
-    </div><div class="review" data-review="post-04">
-    <div class="review-status  " aria-live="polite"></div>
-    <div class="actions">
-      <button class="btn btn-approve" data-action="approve" data-id="post-04">Aprovar</button>
-      <button class="btn btn-change" data-action="change" data-id="post-04" aria-expanded="false">Solicitar alteração</button>
-    </div>
-    <div class="change-box ">
-      <label for="note-post-04">O que precisa mudar?</label>
-      <textarea id="note-post-04" placeholder="Descreva a alteração de forma objetiva..."></textarea>
-      <div class="change-actions"><button class="btn btn-small" data-action="cancel" data-id="post-04">Cancelar</button><button class="btn btn-small btn-save" data-action="save" data-id="post-04">Salvar solicitação</button></div>
-    </div>
-  </div>
-  </article></div>
+    <div class="content-grid" id="copyGrid"></div>
   </section>
 
-  <section id="panel-posts" role="tabpanel" aria-labelledby="tab-posts" hidden="">
+  <section id="panel-production" role="tabpanel" aria-labelledby="tab-production" hidden>
+    <div class="section-intro"><div><h2>Em produção</h2><p>Copies aprovadas que estão aguardando a criação da arte ou edição do vídeo.</p></div></div>
+    <div class="content-grid" id="productionGrid"></div>
+    <div class="empty-state" id="emptyProduction"><div class="empty-icon" aria-hidden="true">◇</div><h3>Nenhum conteúdo em produção</h3><p>Ao aprovar uma copy, ela aparece aqui automaticamente.</p></div>
+  </section>
+
+  <section id="panel-posts" role="tabpanel" aria-labelledby="tab-posts" hidden>
     <div class="section-intro"><div><h2>Posts finalizados</h2><p>Apenas conteúdos com arte ou vídeo finalizados aparecem aqui, junto do preview e da legenda pronta para publicação.</p></div></div>
     <div class="content-grid" id="postsGrid"></div>
     <div class="empty-state" id="emptyPosts">
@@ -248,139 +177,79 @@
     </div>
   </section>
 
+  <section id="panel-final" role="tabpanel" aria-labelledby="tab-final" hidden>
+    <div class="section-intro"><div><h2>Conteúdos finalizados</h2><p>Posts com peça final aprovada e prontos para publicação.</p></div></div>
+    <div class="content-grid" id="finalGrid"></div>
+    <div class="empty-state" id="emptyFinal"><div class="empty-icon" aria-hidden="true">✓</div><h3>Nenhum post finalizado ainda</h3><p>Os posts aprovados na etapa POSTS serão arquivados aqui.</p></div>
+  </section>
+
   <footer><b>Radar Semanal · Discount Detail</b><br>Copy, produção e aprovação · Plymouth, MA</footer>
 </main>
 
 <script>
-const contents = [
-  {
-    id:"post-01",number:"Post 01",type:"hero",pillar:"Hero",title:"The Difference Is in the Details",ptTitle:"A Diferença Está nos Detalhes",format:"Reel",intent:"Transformação e alcance",day:"Segunda-feira",duration:"15–20s",ready:false,media:"",mediaType:"video",
-    concept:"Before/after com cortes rápidos: detalhes sujos, processo e reveal final. Fechar com o reflexo da pintura e a assinatura Since 1999.",
-    caption:["The difference is in the details, and we've spent 27 years perfecting them.","A quick wash looks good for a day. A real detail is something you feel every single time you get back in your car.","Ready to see it on your car? Click the link in our bio or call (508) 746-5634."],
-    tags:"#autodetailing #plymouthma #cardetailing #southshoremass #newenglandcars",
-    pt:["A diferença está nos detalhes, e passamos 27 anos aperfeiçoando cada um deles.","Uma lavagem rápida fica boa por um dia. Um detalhamento de verdade é algo que você sente toda vez que entra no carro.","Pronto pra ver isso no seu carro? Clique no link da bio ou ligue: (508) 746-5634."]
-  },
-  {
-    id:"post-02",number:"Post 02",type:"help",pillar:"Help",title:"A Cleaner Car Is a Healthier Ride",ptTitle:"Um carro limpo é um carro mais saudável",format:"Carrossel",intent:"Educação e bem-estar",day:"Terça-feira",duration:"4 slides",ready:false,media:"",mediaType:"image",
-    concept:"Carrossel educativo com foco em poeira, pólen e germes. Visual limpo, close nos pontos de contato e linguagem voltada a famílias.",
-    caption:["Your car carries your whole family, so what builds up inside it really matters.","A deep interior detail clears out the dust, pollen, and germs that collect where you and your kids sit every day. Swipe to see why it's about more than looks 👇","Give your family a fresher, cleaner ride. Click the link in our bio or call (508) 746-5634."],
-    tags:"#autodetailing #interiordetailing #plymouthma #cardetailing #southshoremass",
-    slides:["A cleaner car is a healthier ride.","Dust, pollen, and everyday germs settle into your seats, carpets, and vents.","A deep interior detail lifts it out, leaving cleaner air and surfaces.","27 years keeping Plymouth families riding fresh."],
-    pt:["Seu carro leva a sua família inteira, então o que se acumula dentro dele faz diferença.","Um detalhamento interno profundo tira a poeira, o pólen e os germes que se juntam bem onde você e seus filhos sentam todo dia.","Dê à sua família um carro mais fresco e limpo. Clique no link da bio ou ligue: (508) 746-5634."]
-  },
-  {
-    id:"post-03",number:"Post 03",type:"hub",pillar:"Hub",title:"Think Your Car Is Clean?",ptTitle:"Acha que seu carro está limpo?",format:"Reel",intent:"Curiosidade e conversão",day:"Quinta-feira",duration:"15–20s",ready:false,media:"",mediaType:"video",
-    concept:"Reel de descoberta: revelar sujeira escondida em bancos, frestas e saídas de ar, seguido do resultado final.",
-    caption:["Your car might look clean, but there's usually more hiding than you'd expect.","Dirt worked deep into the seats, grime along the vents, and a dull layer the paint picks up over months of driving. Once it's gone, the difference is night and day.","Want to see what a real detail uncovers on your car? Click the link in our bio or call (508) 746-5634."],
-    tags:"#autodetailing #plymouthma #cardetailing #interiordetailing #southshoremass",
-    pt:["Seu carro pode até parecer limpo, mas quase sempre tem mais coisa escondida do que você imagina.","Sujeira entranhada nos bancos, aquela crosta nas saídas de ar e uma camada sem brilho que a pintura acumula com os meses de estrada.","Quer ver o que um detalhamento de verdade revela no seu carro? Clique no link da bio ou ligue: (508) 746-5634."]
-  },
-  {
-    id:"post-04",number:"Post 04",type:"authority",pillar:"Authority",title:"Every Detail Matters",ptTitle:"Cada detalhe importa",format:"Foto",intent:"Posicionamento premium",day:"Sexta-feira",duration:"Imagem única",ready:false,media:"",mediaType:"image",
-    concept:"Foto premium de detalhe: soleira, acabamento do vidro ou reflexo da pintura. Enquadramento fechado e iluminação contrastada.",
-    caption:["Every detail matters to us, right down to the ones you'd never think to check.","The door jambs, the seams, the edges of the glass. We treat your car like it's our own, because the small things are what make it feel truly finished.","Feel the difference for yourself. Click the link in our bio or call (508) 746-5634."],
-    tags:"#autodetailing #plymouthma #cardetailing #ceramiccoating #newenglandcars",
-    pt:["Cada detalhe importa pra gente, até aqueles que você nem pensaria em conferir.","As soleiras das portas, as frestas, as bordas dos vidros. A gente trata o seu carro como se fosse nosso.","Sinta a diferença você mesmo. Clique no link da bio ou ligue: (508) 746-5634."]
-  }
+const contents=[
+  {id:"post-00",number:"Post 00",type:"authority",pillar:"Teste",title:"Post Teste — Fluxo de Aprovação",format:"Teste",intent:"Validar o fluxo",day:"Sem publicação",duration:"Conteúdo interno",stage:"copy",isTest:true,supporting:"Use este conteúdo para testar aprovação, solicitação de alteração e movimentação entre as etapas.",caption:["Test post.","This content exists only to validate the weekly approval workflow.","No publication scheduled."]},
+  {id:"post-01",number:"Post 01",type:"hero",pillar:"Hero / Desire",title:"Your Car Deserves a Reset Too.",format:"Static",intent:"Desejo e renovação",day:"Segunda-feira",duration:"Arte final",stage:"posts",ready:true,media:"assets/post-01.jpg",mediaType:"image",supporting:"Start Fresh. Drive Clean.",caption:["You spend more time inside your car than you probably realize.","And little by little, everyday life starts to show — on the seats, carpets, console, and all those places a quick clean doesn't reach.","A professional interior detail isn't just about making things look better. It's about bringing back that fresh, clean feeling every time you get behind the wheel.","Ready for a fresh start? Click the link in our bio or call (508) 746-5634 to get started."]},
+  {id:"post-02",number:"Post 02",type:"hero",pillar:"Hero / Process",title:"You Forget How Good Clean Feels.",format:"Video",intent:"Processo e transformação",day:"A definir",duration:"Vídeo",stage:"copy",concept:"Car wash / detailing process video.",script:["YOU FORGET HOW GOOD CLEAN FEELS.","UNTIL YOU SEE THIS.","READY FOR YOURS?"]},
+  {id:"post-03",number:"Post 03",type:"help",pillar:"Help → Hub",title:"4 Signs Your Interior Needs More Than a Quick Clean",format:"Carousel",intent:"Educação e conversão",day:"A definir",duration:"6 slides",stage:"production",slides:["4 SIGNS YOUR INTERIOR NEEDS MORE THAN A QUICK CLEAN","THE “CLEAN CAR” SMELL DOESN'T LAST. — If odors keep coming back, covering them up isn't solving the source.","YOUR SEATS DON'T LOOK LIKE THEY USED TO. — Daily use slowly builds up dirt, stains and grime.","THE HIDDEN AREAS AREN'T SO HIDDEN ANYMORE. — Between the seats. Under the mats. Around the console.","YOU CLEAN IT... BUT IT NEVER FEELS CLEAN. — That's usually when a quick wipe-down isn't enough anymore.","MAYBE YOUR CAR JUST NEEDS A RESET. — LET'S BRING THAT CLEAN FEELING BACK."],caption:["Your interior doesn't get dirty overnight.","It happens little by little — until one day, the quick clean just doesn't cut it anymore.","Seats, carpets, hard-to-reach areas and the surfaces you touch every day all tell the story.","A professional detail goes beyond what you can see at first glance.","Is your interior due for a reset? Click the link in our bio or call (508) 746-5634 to get started."]},
+  {id:"post-04",number:"Post 04",type:"hub",pillar:"Hero / Proof",title:"Same Interior. Different Experience.",format:"Static Before & After",intent:"Prova e transformação",day:"A definir",duration:"Imagem estática",stage:"copy",supporting:"See what a proper detail can do.",concept:"Before and after using photos from the same vehicle."}
 ];
 
-const stateKey = "discount-detail-weekly-radar-v1";
-const reviewState = JSON.parse(localStorage.getItem(stateKey) || "{}");
+const stateKey="discount-detail-weekly-radar-v3";
+const reviewState=JSON.parse(localStorage.getItem(stateKey)||"{}");
+contents.forEach(item=>{if(!reviewState[item.id])reviewState[item.id]={stage:item.stage,note:"",review:""}});
+function escapeHtml(text=""){return text.replace(/[&<>'"]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]))}
 
-function escapeHtml(text=""){
-  return text.replace(/[&<>'"]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
+function reviewMarkup(item,stage){
+  const saved=reviewState[item.id]||{},hasChanges=saved.review==="changes";
+  const status=hasChanges?"changes":stage==="production"||stage==="final"?"approved":"pending";
+  const label=hasChanges?"Alteração solicitada":stage==="copy"?"Copy pendente":stage==="production"?"Copy aprovada · Em produção":stage==="posts"?"Peça pronta para aprovação":"Post finalizado";
+  const approve=stage==="copy"?`<button class="btn btn-approve" data-action="approve-copy" data-id="${item.id}">Aprovar copy</button>`:stage==="posts"?`<button class="btn btn-approve" data-action="approve-post" data-id="${item.id}">Aprovar post</button>`:"";
+  const change=stage!=="final"?`<button class="btn btn-change" data-action="change" data-id="${item.id}" aria-expanded="${hasChanges}">Solicitar alteração</button>`:"";
+  return `<div class="review" data-review="${item.id}"><div class="review-status ${status} visible" aria-live="polite">${label}</div>${approve||change?`<div class="actions">${approve}${change}</div>`:""}<div class="change-box ${hasChanges?"open":""}"><label for="note-${item.id}">O que precisa mudar?</label><textarea id="note-${item.id}" placeholder="Descreva a alteração de forma objetiva...">${escapeHtml(saved.note||"")}</textarea><div class="change-actions"><button class="btn btn-small" data-action="cancel" data-id="${item.id}">Cancelar</button><button class="btn btn-small btn-save" data-action="save" data-id="${item.id}">Salvar solicitação</button></div></div></div>`;
 }
 
-function reviewMarkup(item){
-  const saved=reviewState[item.id]||{};
-  const status=saved.status||"";
-  const label=status==="approved"?"Conteúdo aprovado":status==="changes"?"Alteração solicitada":"";
-  return `<div class="review" data-review="${item.id}">
-    <div class="review-status ${status} ${status?"visible":""}" aria-live="polite">${label}</div>
-    <div class="actions">
-      <button class="btn btn-approve" data-action="approve" data-id="${item.id}">Aprovar</button>
-      <button class="btn btn-change" data-action="change" data-id="${item.id}" aria-expanded="${status==="changes"}">Solicitar alteração</button>
-    </div>
-    <div class="change-box ${status==="changes"?"open":""}">
-      <label for="note-${item.id}">O que precisa mudar?</label>
-      <textarea id="note-${item.id}" placeholder="Descreva a alteração de forma objetiva...">${escapeHtml(saved.note||"")}</textarea>
-      <div class="change-actions"><button class="btn btn-small" data-action="cancel" data-id="${item.id}">Cancelar</button><button class="btn btn-small btn-save" data-action="save" data-id="${item.id}">Salvar solicitação</button></div>
-    </div>
-  </div>`;
+function captionMarkup(item){if(!item.caption)return "";return `<div class="copy-block"><div class="block-label">Legenda final (EN)</div>${item.caption.map((p,i)=>`<p class="${i===0?"hook":i===item.caption.length-1?"cta":""}">${p}</p>`).join("")}</div>`}
+
+function copyCard(item,stage="copy"){
+  const slides=item.slides?`<details><summary>Roteiro do carrossel · ${item.slides.length} slides</summary><div class="details-body"><ol>${item.slides.map(s=>`<li>${s}</li>`).join("")}</ol></div></details>`:"";
+  const script=item.script?`<div class="copy-block"><div class="block-label">Roteiro do vídeo</div>${item.script.map((s,i)=>`<p class="${i===0?"hook":i===item.script.length-1?"cta":""}">${s}</p>`).join("")}</div>`:"";
+  const supporting=item.supporting?`<div class="copy-block"><div class="block-label">Supporting copy</div><p class="hook">${item.supporting}</p></div>`:"";
+  const concept=item.concept?`<div class="copy-block"><div class="block-label">Conceito</div><p>${item.concept}</p></div>`:"";
+  return `<article class="content-card ${item.type}" data-card="${item.id}"><div class="card-body"><div class="card-overview"><div class="card-top"><span class="post-id">${item.number}</span><span class="pill">${item.pillar}</span></div><h3>${item.title}</h3><div class="meta"><div class="meta-item"><span class="meta-label">Formato</span><span class="meta-value">${item.format}</span></div><div class="meta-item"><span class="meta-label">Publicação</span><span class="meta-value">${item.day}</span></div><div class="meta-item"><span class="meta-label">Objetivo</span><span class="meta-value">${item.intent}</span></div><div class="meta-item"><span class="meta-label">Entrega</span><span class="meta-value">${item.duration}</span></div></div></div><div class="card-main">${supporting}${concept}${script}${captionMarkup(item)}${slides}</div></div>${reviewMarkup(item,stage)}</article>`;
 }
 
-function captionMarkup(item){
-  return `<div class="copy-block"><div class="block-label">Legenda final (EN)</div>
-    <p class="hook">${item.caption[0]}</p><p>${item.caption[1]}</p><p class="cta">${item.caption[2]}</p><p class="tags">${item.tags}</p>
-  </div>`;
-}
-
-function copyCard(item){
-  const slides=item.slides?`<details><summary>Roteiro do carrossel</summary><div class="details-body"><ol>${item.slides.map(s=>`<li>${s}</li>`).join("")}</ol></div></details>`:"";
-  return `<article class="content-card ${item.type}" data-card="${item.id}">
-    <div class="card-body">
-      <div class="card-top"><span class="post-id">${item.number}</span><span class="pill">${item.pillar}</span></div>
-      <h3>${item.title}</h3><p class="pt-title">${item.ptTitle}</p>
-      <div class="meta"><div class="meta-item"><span class="meta-label">Formato</span><span class="meta-value">${item.format}</span></div><div class="meta-item"><span class="meta-label">Publicação</span><span class="meta-value">${item.day}</span></div><div class="meta-item"><span class="meta-label">Objetivo</span><span class="meta-value">${item.intent}</span></div><div class="meta-item"><span class="meta-label">Entrega</span><span class="meta-value">${item.duration}</span></div></div>
-      <div class="copy-block"><div class="block-label">Direção criativa</div><p>${item.concept}</p></div>
-      ${captionMarkup(item)}${slides}
-      <details><summary>Referência em português</summary><div class="details-body">${item.pt.map((p,i)=>`<p class="${i===0?"hook":i===2?"cta":""}">${p}</p>`).join("")}</div></details>
-    </div>${reviewMarkup(item)}
-  </article>`;
-}
-
-function postCard(item){
+function postCard(item,stage="posts"){
   const media=item.mediaType==="video"?`<video controls preload="metadata" src="${item.media}"></video>`:`<img src="${item.media}" alt="Preview final de ${escapeHtml(item.title)}">`;
-  return `<article class="content-card ${item.type}" data-card="${item.id}"><div class="preview">${media}<span class="preview-badge">${item.format} finalizado</span></div><div class="card-body"><div class="card-top"><span class="post-id">${item.number}</span><span class="pill">${item.pillar}</span></div><h3>${item.title}</h3>${captionMarkup(item)}</div>${reviewMarkup(item)}</article>`;
+  return `<article class="content-card ${item.type}" data-card="${item.id}"><div class="post-ready-layout"><div class="preview">${media}<span class="preview-badge">${item.format} finalizado</span></div><div class="card-body"><div class="card-overview"><div class="card-top"><span class="post-id">${item.number}</span><span class="pill">${item.pillar}</span></div><h3>${item.title}</h3>${item.supporting?`<p class="pt-title">${item.supporting}</p>`:""}</div><div class="card-main">${captionMarkup(item)}</div></div></div>${reviewMarkup(item,stage)}</article>`;
 }
 
 function render(){
-  document.getElementById("copyGrid").innerHTML=contents.map(copyCard).join("");
-  const ready=contents.filter(item=>item.ready&&item.media);
-  document.getElementById("postsGrid").innerHTML=ready.map(postCard).join("");
-  document.getElementById("emptyPosts").hidden=ready.length>0;
-  document.getElementById("readyCount").textContent=ready.length;
-  updateProgress();
+  const byStage=stage=>contents.filter(item=>(reviewState[item.id]?.stage||item.stage)===stage);
+  const copy=byStage("copy"),production=byStage("production"),posts=byStage("posts"),final=byStage("final");
+  document.getElementById("copyGrid").innerHTML=copy.map(item=>copyCard(item,"copy")).join("");
+  document.getElementById("productionGrid").innerHTML=production.map(item=>copyCard(item,"production")).join("");
+  document.getElementById("postsGrid").innerHTML=posts.map(item=>postCard(item,"posts")).join("");
+  document.getElementById("finalGrid").innerHTML=final.map(item=>postCard(item,"final")).join("");
+  document.getElementById("emptyProduction").hidden=production.length>0;document.getElementById("emptyPosts").hidden=posts.length>0;document.getElementById("emptyFinal").hidden=final.length>0;
+  document.getElementById("copyCount").textContent=copy.length;document.getElementById("productionCount").textContent=production.length;document.getElementById("postsCount").textContent=posts.length;document.getElementById("finalCount").textContent=final.length;updateProgress();
 }
 
-function updateProgress(){
-  const approved=contents.filter(item=>reviewState[item.id]?.status==="approved").length;
-  document.getElementById("progressText").textContent=`${approved} de ${contents.length} aprovados`;
-  document.getElementById("progressFill").style.width=`${approved/contents.length*100}%`;
-}
-
+function updateProgress(){const real=contents.filter(item=>!item.isTest),approved=real.filter(item=>reviewState[item.id]?.stage==="final").length;document.getElementById("progressText").textContent=`${approved} de ${real.length} finalizados`;document.getElementById("progressFill").style.width=`${approved/real.length*100}%`}
 function saveState(){localStorage.setItem(stateKey,JSON.stringify(reviewState));updateProgress()}
 
-document.querySelectorAll(".tab").forEach(tab=>tab.addEventListener("click",()=>{
-  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",String(t===tab)));
-  document.querySelectorAll('[role="tabpanel"]').forEach(panel=>panel.hidden=panel.id!==tab.getAttribute("aria-controls"));
-}));
+document.querySelectorAll(".tab").forEach(tab=>tab.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",String(t===tab)));document.querySelectorAll('[role="tabpanel"]').forEach(panel=>panel.hidden=panel.id!==tab.getAttribute("aria-controls"))}));
 
 document.addEventListener("click",event=>{
-  const button=event.target.closest("[data-action]");if(!button)return;
-  const id=button.dataset.id,action=button.dataset.action;
-  const reviews=[...document.querySelectorAll(`[data-review="${id}"]`)];
-  if(action==="approve"){
-    reviewState[id]={status:"approved",note:""};saveState();
-    reviews.forEach(box=>{box.querySelector(".change-box").classList.remove("open");const status=box.querySelector(".review-status");status.className="review-status approved visible";status.textContent="Conteúdo aprovado";box.querySelector('[data-action="change"]').setAttribute("aria-expanded","false")});
-  }
-  if(action==="change"){
-    reviews.forEach(box=>{const change=box.querySelector(".change-box");change.classList.add("open");box.querySelector('[data-action="change"]').setAttribute("aria-expanded","true")});
-    const textarea=button.closest(".review").querySelector("textarea");textarea.focus();
-  }
-  if(action==="cancel"){
-    button.closest(".change-box").classList.remove("open");button.closest(".review").querySelector('[data-action="change"]').setAttribute("aria-expanded","false");
-  }
-  if(action==="save"){
-    const note=button.closest(".change-box").querySelector("textarea").value.trim();
-    if(!note){button.closest(".change-box").querySelector("textarea").focus();return}
-    reviewState[id]={status:"changes",note};saveState();
-    reviews.forEach(box=>{const status=box.querySelector(".review-status");status.className="review-status changes visible";status.textContent="Alteração solicitada"});
-  }
+  const button=event.target.closest("[data-action]");if(!button)return;const id=button.dataset.id,action=button.dataset.action,current=reviewState[id];
+  if(action==="approve-copy"){current.stage="production";current.review="";current.note="";saveState();render();return}
+  if(action==="approve-post"){current.stage="final";current.review="";current.note="";saveState();render();return}
+  if(action==="change"){const box=button.closest(".review");box.querySelector(".change-box").classList.add("open");button.setAttribute("aria-expanded","true");box.querySelector("textarea").focus();return}
+  if(action==="cancel"){const box=button.closest(".review");box.querySelector(".change-box").classList.remove("open");box.querySelector('[data-action="change"]').setAttribute("aria-expanded","false");return}
+  if(action==="save"){const box=button.closest(".review"),note=box.querySelector("textarea").value.trim();if(!note){box.querySelector("textarea").focus();return}current.note=note;current.review="changes";if(current.stage==="posts")current.stage="production";saveState();render()}
 });
 
 render();
 </script>
-
-
-</body></html>
+</body>
+</html>
