@@ -156,13 +156,13 @@
   </section>
 
   <nav class="tabs" aria-label="Áreas do Radar" role="tablist">
-    <button class="tab" id="tab-copy" role="tab" aria-controls="panel-copy" aria-selected="true">COPY <span class="tab-count" id="copyCount">0</span></button>
+    <button class="tab" id="tab-copy" role="tab" aria-controls="panel-copy" aria-selected="false">COPY <span class="tab-count" id="copyCount">0</span></button>
     <button class="tab" id="tab-production" role="tab" aria-controls="panel-production" aria-selected="false">EM PRODUÇÃO <span class="tab-count" id="productionCount">0</span></button>
-    <button class="tab" id="tab-posts" role="tab" aria-controls="panel-posts" aria-selected="false">POSTS <span class="tab-count" id="postsCount">0</span></button>
+    <button class="tab" id="tab-posts" role="tab" aria-controls="panel-posts" aria-selected="true">POSTS <span class="tab-count" id="postsCount">0</span></button>
     <button class="tab" id="tab-final" role="tab" aria-controls="panel-final" aria-selected="false">FINALIZADO <span class="tab-count" id="finalCount">0</span></button>
   </nav>
 
-  <section id="panel-copy" role="tabpanel" aria-labelledby="tab-copy">
+  <section id="panel-copy" role="tabpanel" aria-labelledby="tab-copy" hidden>
     <div class="section-intro">
       <div><h2>Conteúdos da semana</h2><p>Revise o conceito, a copy, a legenda final e as informações de produção de cada conteúdo.</p></div>
       <div class="status-key" aria-label="Legenda de status"><span><i></i>Pendente</span><span><i class="approved"></i>Aprovado</span><span><i class="changes"></i>Alteração</span></div>
@@ -176,7 +176,7 @@
     <div class="empty-state" id="emptyProduction"><div class="empty-icon" aria-hidden="true">◇</div><h3>Nenhum conteúdo em produção</h3><p>Ao aprovar uma copy, ela aparece aqui automaticamente.</p></div>
   </section>
 
-  <section id="panel-posts" role="tabpanel" aria-labelledby="tab-posts" hidden>
+  <section id="panel-posts" role="tabpanel" aria-labelledby="tab-posts">
     <div class="section-intro"><div><h2>Posts finalizados</h2><p>Apenas conteúdos com arte ou vídeo finalizados aparecem aqui, junto do preview e da legenda pronta para publicação.</p></div></div>
     <div class="content-grid" id="postsGrid"></div>
     <div class="empty-state" id="emptyPosts">
