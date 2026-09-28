@@ -106,11 +106,20 @@
   .change-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}
   .btn-small{min-height:36px;padding:0 13px;font-size:9.5px}
   .btn-save{background:var(--ink);border-color:var(--ink);color:#fff}
-  .post-ready-layout{display:grid;grid-template-columns:220px 1fr}
+  .post-ready-layout{display:grid;grid-template-columns:250px 1fr}
   .post-ready-layout .card-body{grid-template-columns:1fr;padding-bottom:18px}
   .preview{min-height:260px;margin:0;background:#12161d;display:grid;place-items:center;position:relative;overflow:hidden;color:#fff}
-  .preview img,.preview video{width:100%;height:100%;object-fit:cover;display:block}
+  .preview>img,.preview>video{width:100%;height:100%;object-fit:cover;display:block}
   .preview-badge{position:absolute;top:14px;left:14px;padding:6px 9px;border-radius:99px;background:rgba(15,20,28,.78);backdrop-filter:blur(8px);font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:900}
+  .carousel-preview{display:block;min-height:0;aspect-ratio:4/5;background:#11151c}
+  .carousel-track{height:100%;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+  .carousel-track::-webkit-scrollbar{display:none}
+  .carousel-slide{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start;scroll-snap-stop:always;display:block}
+  .carousel-controls{position:absolute;left:12px;right:12px;bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;pointer-events:none}
+  .carousel-btn,.carousel-counter{border:1px solid rgba(255,255,255,.24);background:rgba(10,14,20,.8);color:#fff;backdrop-filter:blur(8px);box-shadow:0 4px 16px rgba(0,0,0,.2)}
+  .carousel-btn{pointer-events:auto;width:34px;height:34px;border-radius:50%;font-size:18px;line-height:1;display:grid;place-items:center;padding:0}
+  .carousel-btn:hover{background:rgba(169,129,47,.94)}
+  .carousel-counter{min-width:58px;padding:7px 10px;border-radius:99px;text-align:center;font-size:10px;font-weight:900;letter-spacing:.7px}
   .art-preview{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;background:radial-gradient(circle at 76% 18%,rgba(201,162,75,.3),transparent 28%),linear-gradient(145deg,#252b34,#10141b 70%);text-align:left}
   .art-preview::before{content:"DISCOUNT DETAIL · SINCE 1999";position:absolute;top:24px;left:26px;color:#d7b966;font-size:9px;letter-spacing:1.5px;font-weight:900}
   .art-preview strong{max-width:520px;font:600 clamp(25px,4vw,40px)/1.05 var(--serif);letter-spacing:-.5px}
@@ -123,7 +132,7 @@
   footer::before{content:"";display:block;width:58px;height:2px;margin:0 auto 17px;background:var(--gold);opacity:.55}
   footer b{color:var(--ink)}
   @media(max-width:900px){
-    .shell{width:min(100% - 22px,720px);padding-top:38px}.week-summary{grid-template-columns:auto 1fr}.progress{grid-column:1/-1;justify-content:flex-end}.section-intro{align-items:start;flex-direction:column}.status-key{justify-content:flex-start}.tabs{top:7px;grid-template-columns:repeat(2,1fr)}.card-body{grid-template-columns:1fr;gap:12px}.post-ready-layout{grid-template-columns:1fr}.preview{aspect-ratio:16/9;min-height:0}.review{grid-template-columns:1fr}.actions{grid-column:1;grid-template-columns:1fr 1fr}.review-status{margin-bottom:0}
+    .shell{width:min(100% - 22px,720px);padding-top:38px}.week-summary{grid-template-columns:auto 1fr}.progress{grid-column:1/-1;justify-content:flex-end}.section-intro{align-items:start;flex-direction:column}.status-key{justify-content:flex-start}.tabs{top:7px;grid-template-columns:repeat(2,1fr)}.card-body{grid-template-columns:1fr;gap:12px}.post-ready-layout{grid-template-columns:1fr}.preview{aspect-ratio:16/9;min-height:0}.carousel-preview{aspect-ratio:4/5}.review{grid-template-columns:1fr}.actions{grid-column:1;grid-template-columns:1fr 1fr}.review-status{margin-bottom:0}
   }
   @media(max-width:480px){
     .shell{width:min(100% - 16px,620px)}.masthead{padding:0 8px}.week-summary{padding:15px}.card-body{padding:18px 16px 10px}.review{padding:12px 16px 16px}.actions{grid-template-columns:1fr}.tab{padding:12px 8px}.tab-count{display:none}
@@ -136,13 +145,13 @@
   <header class="masthead">
     <div class="kicker">Planejamento Editorial</div>
     <h1>Radar Semanal</h1>
-    <p class="subtitle">4 conteúdos + 1 teste · copy, produção e aprovação em um só lugar</p>
+    <p class="subtitle">4 conteúdos · revisão e aprovação em um só lugar</p>
     <div class="brand-line">DISCOUNT DETAIL · SINCE 1999</div>
   </header>
 
   <section class="week-summary" aria-label="Resumo da semana">
-    <div class="week-number">1</div>
-    <div><h2>Semana 01</h2><p>The difference is in the details</p></div>
+    <div class="week-number">4</div>
+    <div><h2>Semana 04</h2><p>28 Sep — 04 Oct · 2026</p></div>
     <div class="progress"><span id="progressText">0 de 4 aprovados</span><span class="progress-bar" aria-hidden="true"><span class="progress-fill" id="progressFill"></span></span></div>
   </section>
 
@@ -188,14 +197,13 @@
 
 <script>
 const contents=[
-  {id:"post-00",number:"Post 00",type:"authority",pillar:"Teste",title:"Post Teste — Fluxo de Aprovação",format:"Teste",intent:"Validar o fluxo",day:"Sem publicação",duration:"Conteúdo interno",stage:"copy",isTest:true,supporting:"Use este conteúdo para testar aprovação, solicitação de alteração e movimentação entre as etapas.",caption:["Test post.","This content exists only to validate the weekly approval workflow.","No publication scheduled."]},
-  {id:"post-01",number:"Post 01",type:"hero",pillar:"Hero / Desire",title:"Your Car Deserves a Reset Too.",format:"Static",intent:"Desejo e renovação",day:"Segunda-feira",duration:"Arte final",stage:"posts",ready:true,media:"assets/post-01.jpg",mediaType:"image",supporting:"Start Fresh. Drive Clean.",caption:["You spend more time inside your car than you probably realize.","And little by little, everyday life starts to show — on the seats, carpets, console, and all those places a quick clean doesn't reach.","A professional interior detail isn't just about making things look better. It's about bringing back that fresh, clean feeling every time you get behind the wheel.","Ready for a fresh start? Click the link in our bio or call (508) 746-5634 to get started."]},
-  {id:"post-02",number:"Post 02",type:"hero",pillar:"Hero / Process",title:"You Forget How Good Clean Feels.",format:"Video",intent:"Processo e transformação",day:"A definir",duration:"Vídeo",stage:"copy",concept:"Car wash / detailing process video.",script:["YOU FORGET HOW GOOD CLEAN FEELS.","UNTIL YOU SEE THIS.","READY FOR YOURS?"]},
-  {id:"post-03",number:"Post 03",type:"help",pillar:"Help → Hub",title:"4 Signs Your Interior Needs More Than a Quick Clean",format:"Carousel",intent:"Educação e conversão",day:"A definir",duration:"6 slides",stage:"production",slides:["4 SIGNS YOUR INTERIOR NEEDS MORE THAN A QUICK CLEAN","THE “CLEAN CAR” SMELL DOESN'T LAST. — If odors keep coming back, covering them up isn't solving the source.","YOUR SEATS DON'T LOOK LIKE THEY USED TO. — Daily use slowly builds up dirt, stains and grime.","THE HIDDEN AREAS AREN'T SO HIDDEN ANYMORE. — Between the seats. Under the mats. Around the console.","YOU CLEAN IT... BUT IT NEVER FEELS CLEAN. — That's usually when a quick wipe-down isn't enough anymore.","MAYBE YOUR CAR JUST NEEDS A RESET. — LET'S BRING THAT CLEAN FEELING BACK."],caption:["Your interior doesn't get dirty overnight.","It happens little by little — until one day, the quick clean just doesn't cut it anymore.","Seats, carpets, hard-to-reach areas and the surfaces you touch every day all tell the story.","A professional detail goes beyond what you can see at first glance.","Is your interior due for a reset? Click the link in our bio or call (508) 746-5634 to get started."]},
-  {id:"post-04",number:"Post 04",type:"hub",pillar:"Hero / Proof",title:"Same Interior. Different Experience.",format:"Static Before & After",intent:"Prova e transformação",day:"A definir",duration:"Imagem estática",stage:"copy",supporting:"See what a proper detail can do.",concept:"Before and after using photos from the same vehicle."}
+  {id:"post-01",number:"Post 01",type:"help",pillar:"Help → Hub",title:"4 Signs Your Interior Needs More Than a Quick Clean",format:"Carousel",intent:"Educação e conversão",day:"Segunda-feira",duration:"6 slides",stage:"posts",ready:true,mediaType:"carousel",media:["assets/week4-post-01-slide-01.png","assets/week4-post-01-slide-02.png","assets/week4-post-01-slide-03.png","assets/week4-post-01-slide-04.png","assets/week4-post-01-slide-05.png","assets/week4-post-01-slide-06.png"],caption:["Your interior doesn’t get dirty overnight.","It happens little by little — until a quick clean just doesn’t feel like enough anymore.","Seats, hidden areas, odors, and everyday buildup can all be signs that it’s time for a deeper reset.","A professional interior detail goes beyond what you can see at first glance.","Ready to bring that clean feeling back?","Call (508) 746-5634 or click the link in our bio."]},
+  {id:"post-02",number:"Post 02",type:"hero",pillar:"Hero / Maintenance",title:"Clean Car. Clean Lines.",format:"Static",intent:"Manutenção e desejo",day:"Quarta-feira",duration:"Imagem final",stage:"posts",ready:true,mediaType:"image",media:"assets/week4-post-02.png",caption:["Clean car. Clean lines. Ready to be enjoyed.","This BMW came in for the kind of care that keeps a great-looking vehicle looking its best.","Because sometimes it’s not about changing the car — it’s about maintaining what already makes it stand out.","Ready to give your vehicle the same treatment?","Call (508) 746-5634 or click the link in our bio."]},
+  {id:"post-03",number:"Post 03",type:"hero",pillar:"Hero / Process",title:"Not Every Detail Starts With a Neglected Car.",format:"Video",intent:"Manutenção e processo",day:"Quinta-feira",duration:"Vídeo final",stage:"posts",ready:true,mediaType:"video",media:"assets/week4-post-03.mov",caption:["Not every detail starts with a neglected car.","Sometimes, it’s about maintaining a vehicle that’s already been well cared for — keeping the finish clean, sharp, and ready for the road.","This BMW came in for exactly that.","Because taking care of your car isn’t just about restoring it. It’s about keeping it that way.","Ready to maintain yours?","Call (508) 746-5634 or click the link in our bio."]},
+  {id:"post-04",number:"Post 04",type:"hub",pillar:"Hero / Proof",title:"This Lexus Was Ready for a Reset.",format:"Video",intent:"Prova e transformação",day:"Sábado",duration:"Vídeo final",stage:"posts",ready:true,mediaType:"video",media:"assets/week4-post-04.mov",caption:["This Lexus was ready for a reset — and the interior showed it.","Built-up dirt, marked carpets, and those areas a quick clean simply can’t reach.","After a complete detail, the difference shows in every part of the interior.","It’s not just about looking clean. It’s about making the car feel truly clean again.","Ready for yours?","Call (508) 746-5634 or click the link in our bio."]}
 ];
 
-const stateKey="discount-detail-weekly-radar-v3";
+const stateKey="discount-detail-weekly-radar-v4-2026-09-28";
 const reviewState=JSON.parse(localStorage.getItem(stateKey)||"{}");
 contents.forEach(item=>{if(!reviewState[item.id])reviewState[item.id]={stage:item.stage,note:"",review:""}});
 function escapeHtml(text=""){return text.replace(/[&<>'"]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]))}
@@ -209,7 +217,7 @@ function reviewMarkup(item,stage){
   return `<div class="review" data-review="${item.id}"><div class="review-status ${status} visible" aria-live="polite">${label}</div>${approve||change?`<div class="actions">${approve}${change}</div>`:""}<div class="change-box ${hasChanges?"open":""}"><label for="note-${item.id}">O que precisa mudar?</label><textarea id="note-${item.id}" placeholder="Descreva a alteração de forma objetiva...">${escapeHtml(saved.note||"")}</textarea><div class="change-actions"><button class="btn btn-small" data-action="cancel" data-id="${item.id}">Cancelar</button><button class="btn btn-small btn-save" data-action="save" data-id="${item.id}">Salvar solicitação</button></div></div></div>`;
 }
 
-function captionMarkup(item){if(!item.caption)return "";return `<div class="copy-block"><div class="block-label">Legenda final (EN)</div>${item.caption.map((p,i)=>`<p class="${i===0?"hook":i===item.caption.length-1?"cta":""}">${p}</p>`).join("")}</div>`}
+function captionMarkup(item){if(!item.caption)return "";return `<div class="copy-block"><div class="block-label">Legenda final (EN)</div>${item.caption.map((p,i)=>`<p class="${i===0?"hook":i===item.caption.length-1?"cta":""}">${escapeHtml(p)}</p>`).join("")}</div>`}
 
 function copyCard(item,stage="copy"){
   const slides=item.slides?`<details><summary>Roteiro do carrossel · ${item.slides.length} slides</summary><div class="details-body"><ol>${item.slides.map(s=>`<li>${s}</li>`).join("")}</ol></div></details>`:"";
@@ -220,7 +228,7 @@ function copyCard(item,stage="copy"){
 }
 
 function postCard(item,stage="posts"){
-  const media=item.mediaType==="video"?`<video controls preload="metadata" src="${item.media}"></video>`:`<img src="${item.media}" alt="Preview final de ${escapeHtml(item.title)}">`;
+  const media=item.mediaType==="video"?`<video controls playsinline preload="metadata" src="${item.media}"></video>`:item.mediaType==="carousel"?`<div class="carousel-preview" data-carousel><div class="carousel-track">${item.media.map((src,i)=>`<img class="carousel-slide" src="${src}" alt="${escapeHtml(item.title)} · slide ${i+1} de ${item.media.length}" loading="${i===0?"eager":"lazy"}">`).join("")}</div><div class="carousel-controls"><button class="carousel-btn" type="button" data-carousel-prev aria-label="Slide anterior">‹</button><span class="carousel-counter"><b>1</b> / ${item.media.length}</span><button class="carousel-btn" type="button" data-carousel-next aria-label="Próximo slide">›</button></div></div>`:`<img src="${item.media}" alt="Preview final de ${escapeHtml(item.title)}">`;
   return `<article class="content-card ${item.type}" data-card="${item.id}"><div class="post-ready-layout"><div class="preview">${media}<span class="preview-badge">${item.format} finalizado</span></div><div class="card-body"><div class="card-overview"><div class="card-top"><span class="post-id">${item.number}</span><span class="pill">${item.pillar}</span></div><h3>${item.title}</h3>${item.supporting?`<p class="pt-title">${item.supporting}</p>`:""}</div><div class="card-main">${captionMarkup(item)}</div></div></div>${reviewMarkup(item,stage)}</article>`;
 }
 
@@ -233,9 +241,22 @@ function render(){
   document.getElementById("finalGrid").innerHTML=final.map(item=>postCard(item,"final")).join("");
   document.getElementById("emptyProduction").hidden=production.length>0;document.getElementById("emptyPosts").hidden=posts.length>0;document.getElementById("emptyFinal").hidden=final.length>0;
   document.getElementById("copyCount").textContent=copy.length;document.getElementById("productionCount").textContent=production.length;document.getElementById("postsCount").textContent=posts.length;document.getElementById("finalCount").textContent=final.length;updateProgress();
+  setupCarousels();
 }
 
-function updateProgress(){const real=contents.filter(item=>!item.isTest),approved=real.filter(item=>reviewState[item.id]?.stage==="final").length;document.getElementById("progressText").textContent=`${approved} de ${real.length} finalizados`;document.getElementById("progressFill").style.width=`${approved/real.length*100}%`}
+function setupCarousels(){
+  document.querySelectorAll("[data-carousel]").forEach(carousel=>{
+    const track=carousel.querySelector(".carousel-track"),slides=[...carousel.querySelectorAll(".carousel-slide")],counter=carousel.querySelector(".carousel-counter b");
+    if(!track||!slides.length)return;
+    const current=()=>Math.max(0,Math.min(slides.length-1,Math.round(track.scrollLeft/track.clientWidth)));
+    const go=step=>track.scrollTo({left:(current()+step)*track.clientWidth,behavior:"smooth"});
+    carousel.querySelector("[data-carousel-prev]").addEventListener("click",()=>go(-1));
+    carousel.querySelector("[data-carousel-next]").addEventListener("click",()=>go(1));
+    let ticking=false;track.addEventListener("scroll",()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{counter.textContent=current()+1;ticking=false})},{passive:true});
+  });
+}
+
+function updateProgress(){const real=contents.filter(item=>!item.isTest),approved=real.filter(item=>reviewState[item.id]?.stage==="final").length;document.getElementById("progressText").textContent=`${approved} de ${real.length} finalizados`;document.getElementById("progressFill").style.width=`${real.length?approved/real.length*100:0}%`}
 function saveState(){localStorage.setItem(stateKey,JSON.stringify(reviewState));updateProgress()}
 
 document.querySelectorAll(".tab").forEach(tab=>tab.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",String(t===tab)));document.querySelectorAll('[role="tabpanel"]').forEach(panel=>panel.hidden=panel.id!==tab.getAttribute("aria-controls"))}));
